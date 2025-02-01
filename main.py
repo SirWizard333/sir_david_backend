@@ -73,4 +73,8 @@ def check_pro_status(token: str = Depends(oauth2_scheme)):
 @app.get("/")
 def home():
     return {"message": "Welcome to Sir David's Acting Studio API!"}
+    @app.get("/")
+async def root():
+    return {"message": "Hello, FastAPI is running!"}
+
 
