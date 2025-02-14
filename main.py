@@ -70,11 +70,6 @@ async def paypal_webhook(request: Request):
 def check_pro_status(token: str = Depends(oauth2_scheme)):
     user_id = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])["sub"]
     return {"is_pro": users_db.get(user_id, {}).get("is_pro", False)}
-@app.get("/")
-async def root():
-    return {"message": "Welcome to Sir David's Acting Studio API!"}
-
-@app.get("/")
 async def root():
     return {"message": "Hello, FastAPI is running!"}
 
