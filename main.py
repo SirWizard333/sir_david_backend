@@ -72,5 +72,10 @@ def check_pro_status(token: str = Depends(oauth2_scheme)):
     return {"is_pro": users_db.get(user_id, {}).get("is_pro", False)}
 async def root():
     return {"message": "Hello, FastAPI is running!"}
+import os
+import uvicorn
 
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
 
