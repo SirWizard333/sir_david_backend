@@ -23,8 +23,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/token")
 
 paypalrestsdk.configure({
     "mode": os.getenv("PAYPAL_MODE", "live"),
-    "client_id": os.getenv("AYAGp8vTgF38pWCEdHPCkB6osrpUkCpjyQr5QykffSrZ9TmKuX8_rtEjzxcHsXflOvFxdG01BRtDiPeh"),
-    "client_secret": os.getenv("EBPvVksQvcPwdlA6Y_307aKflyrUBtKJDaQSM_X47SJHK17DpcdOYqREtQ1cTH36hSL-9JzYQh6WWNRx")
+    "client_id": os.getenv("PAYPAL_CLIENT_ID"),
+    "client_secret": os.getenv("PAYPAL_CLIENT_SECRET")
 })
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -132,8 +132,3 @@ def check_pro_status(token: str = Depends(oauth2_scheme)):
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
-
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
-
