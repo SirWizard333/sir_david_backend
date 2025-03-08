@@ -15,11 +15,9 @@ app = FastAPI()
 SECRET_KEY = os.getenv("SECRET_KEY", "your_secret_key_here")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
-
 # OpenAI API key setup
 openai.api_key = os.getenv("OPENAI_API_KEY")
 print(f"OpenAI API Key loaded: {openai.api_key}")
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/token")
 
 paypalrestsdk.configure({
     "mode": os.getenv("PAYPAL_MODE", "live"),
