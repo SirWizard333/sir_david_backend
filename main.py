@@ -18,7 +18,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 # OpenAI API key setup
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
+openai.api_key = os.getenv("OPENAI_API_KEY")
+print(f"OpenAI API Key loaded: {openai.api_key}")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/token")
 
 paypalrestsdk.configure({
