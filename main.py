@@ -127,8 +127,8 @@ def check_pro_status(token: str = Depends(oauth2_scheme)):
         user_id = payload["sub"]
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid token")
-    return {"is_pro": users_db.get(user_id, {}).get("is_pro", False)}
+    return {"is_pro": users_db.get(user_id, {}).get("is_pro", True)}
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     print(f"Starting app on port {port}")  # Add this line for debugging
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=false)
