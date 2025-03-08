@@ -62,7 +62,7 @@ async def register(user: User):
     if user.username in users_db:
         raise HTTPException(status_code=400, detail="User already exists")
     hashed_password = pwd_context.hash(user.password)
-    users_db[user.username] = {"password": hashed_password, "is_pro": False}
+    users_db[user.username] = {"password": hashed_password, "is_pro": True}
     return {"message": "User registered"}
 
 @app.post("/api/token", response_model=Token)
