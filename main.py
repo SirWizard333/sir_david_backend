@@ -19,8 +19,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 openai.api_key = os.getenv("OPENAI_API_KEY")
 if not openai.api_key:
     print("WARNING: OPENAI_API_KEY not found in environment")
+    print(f"All environment variables: {os.environ}")
 print(f"OpenAI API Key loaded: {openai.api_key}")
-
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/token")
 
 paypalrestsdk.configure({
